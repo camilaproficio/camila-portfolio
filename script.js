@@ -3,9 +3,6 @@
    script.js
    =========================== */
 
-// Enable JS-driven animations only when JS is confirmed running
-document.documentElement.classList.add('js-ready');
-
 // ---- Nav scroll effect ----
 const nav = document.querySelector('nav');
 window.addEventListener('scroll', () => {
@@ -32,18 +29,6 @@ function highlightNavLink() {
   });
 }
 
-// ---- Fade-up on scroll (IntersectionObserver) ----
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      observer.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.12 });
-
-document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-
 // ---- Contact form (Formspree) ----
 const form = document.getElementById('contact-form');
 const status = document.getElementById('form-status');
@@ -68,7 +53,7 @@ if (form) {
 
       if (res.ok) {
         form.reset();
-        status.textContent = 'Message sent! I'll get back to you soon.';
+        status.textContent = "Message sent! I’ll get back to you soon.";
         status.className = 'form-status success';
       } else {
         throw new Error('Server error');
