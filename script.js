@@ -3,6 +3,9 @@
    script.js
    =========================== */
 
+// Enable JS-driven animations only when JS is confirmed running
+document.documentElement.classList.add('js-ready');
+
 // ---- Nav scroll effect ----
 const nav = document.querySelector('nav');
 window.addEventListener('scroll', () => {
